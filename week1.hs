@@ -6,3 +6,13 @@ toDigits x
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev x = reverse (toDigits x)
 
+doDouble :: [Integer] -> [Integer]
+doDouble [] = []
+doDouble (x:xs) = (2*x) : (dontDouble xs)
+
+dontDouble :: [Integer] -> [Integer]
+dontDouble [] = []
+dontDouble (x:xs) = x : (doDouble xs)
+
+doubleEveryOther :: [Integer] -> [Integer]
+doubleEveryOther x = reverse (dontDouble (reverse x))
