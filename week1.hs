@@ -16,3 +16,7 @@ dontDouble (x:xs) = x : (doDouble xs)
 
 doubleEveryOther :: [Integer] -> [Integer]
 doubleEveryOther x = reverse (dontDouble (reverse x))
+
+sumDigits :: [Integer] -> Integer
+sumDigits [] = 0
+sumDigits (x:xs) = sum (toDigits x) + (sumDigits xs)
