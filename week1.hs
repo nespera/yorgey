@@ -20,3 +20,7 @@ doubleEveryOther x = reverse (dontDouble (reverse x))
 sumDigits :: [Integer] -> Integer
 sumDigits [] = 0
 sumDigits (x:xs) = sum (toDigits x) + (sumDigits xs)
+
+validate :: Integer -> Bool
+validate n = (sumDigits (doubleEveryOther (toDigits n))) `mod` 10 == 0 
+
