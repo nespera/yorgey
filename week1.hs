@@ -1,5 +1,21 @@
+lastDigit :: Integer -> Integer
+lastDigit n
+  | n <=0 = 0
+  | otherwise = n `mod` 10
+
+dropLastDigit :: Integer -> Integer
+dropLastDigit n
+  | n < 10 = 0
+  | otherwise = n `div` 10
+
 toDigits :: Integer -> [Integer]
-toDigits x 
+toDigits x
+  | x < 0 = []
+  | x < 10 = [x]
+  | otherwise = (toDigits (dropLastDigit x)) ++ [lastDigit x]
+
+toDigits2 :: Integer -> [Integer]
+toDigits2 x 
   | x <= 0 = []
   | otherwise = map (\c -> read [c] :: Integer)(show x)
 
